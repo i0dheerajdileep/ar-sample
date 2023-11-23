@@ -74,7 +74,7 @@ function handleLocationUpdate(position) {
             const modelElement = document.getElementById('gltfModel');
             if (modelElement) {
               modelElement.setAttribute('gps-new-entity-place', `null`);
-              modelElement.setAttribute('gltf-model', `../assets/Dhishna_logo_AR.glb`)
+              modelElement.setAttribute('gltf-model', ``)
               console.log("the model is removed set");
             }
         }
