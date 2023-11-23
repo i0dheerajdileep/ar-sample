@@ -63,7 +63,7 @@ function handleLocationUpdate(position) {
             const newLongitude = locations[locIndex].x2;
 
 
-            if (localStorage.getItem("model") !== "true") {
+            if (true) {
                 updateModel(newLatitude, newLongitude);
                 localStorage.setItem("model", "true");
 
