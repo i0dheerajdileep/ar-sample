@@ -11,7 +11,7 @@ const locations = [
 
 // Index of the current location
 let locIndex = 0;
-let setModel = true;
+// let setModel = true;
 
 // Function to calculate distance between two points given their latitude and longitude
 function calcDistance(lat1, lon1, lat2, lon2) {
@@ -63,9 +63,9 @@ function handleLocationUpdate(position) {
             const newLongitude = locations[locIndex].x2;
 
 
-            if (setModel) {
+            if (localStorage.getItem("model") !== "true") {
                 updateModel(newLatitude, newLongitude);
-                setModel = false;
+                localStorage.setItem("model", "true");
 
                 // localStorage.setItem(`model${locIndex}`, "true");
             }
@@ -74,6 +74,7 @@ function handleLocationUpdate(position) {
             const modelElement = document.getElementById('gltfModel');
             if (modelElement) {
               modelElement.setAttribute('gps-new-entity-place', `null`);
+              modelElement.setAttribute('gltf-model', `../assets/Dhishna_logo_AR.glb`)
               console.log("the model is removed set");
             }
         }
