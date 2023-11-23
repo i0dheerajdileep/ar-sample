@@ -11,7 +11,7 @@ const locations = [
 
 // Index of the current location
 let locIndex = 0;
-// let setModel = true;
+let setModel = 0;
 
 // Function to calculate distance between two points given their latitude and longitude
 function calcDistance(lat1, lon1, lat2, lon2) {
@@ -44,6 +44,7 @@ function updateModel(newLatitude, newLongitude) {
         modelElement.setAttribute('gps-new-entity-place', `latitude: ${newLatitude}; longitude: ${newLongitude};`);
         modelElement.setAttribute('gltf-model', `../assets/Dhishna_logo_AR.glb`)
         console.log("Model updated to new location:", newLatitude, newLongitude);
+        setModel++;
     }
 }
 
@@ -63,9 +64,10 @@ function handleLocationUpdate(position) {
             const newLongitude = locations[locIndex].x2;
 
 
-            if (true) {
+            if (localStorage.getItem(`model${setModel}`) !== "true") {
                 updateModel(newLatitude, newLongitude);
                 localStorage.setItem("model", "true");
+                setModel++;
 
                 // localStorage.setItem(`model${locIndex}`, "true");
             }
@@ -79,7 +81,7 @@ function handleLocationUpdate(position) {
             }
         }
     } else {
-        // console.log("No more locations to check.");
+        console.log("No more locations to check.");
     }
 }
 
