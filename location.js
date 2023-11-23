@@ -1,12 +1,12 @@
 // Example location data
-// const locations = [
-//     { x1: 10.049085, x2: 76.330842 },
-
-// ];
 const locations = [
-    { x1: 10.049389, x2: 76.330982 },
+    { x1: 10.049085, x2: 76.330842 },
 
 ];
+// const locations = [
+//     { x1: 10.049389, x2: 76.330982 },
+
+// ];
 // console.log(locations)
 
 // Index of the current location
@@ -53,7 +53,7 @@ function handleLocationUpdate(position) {
     const userLong = position.coords.longitude;
 
     if (locIndex !== -1 ) {
-        const thresholdDistance = 50; // Set your desired threshold distance
+        const thresholdDistance = 30; // Set your desired threshold distance
 
         const isNearLocation = isUserNearLocation(userLatt, userLong, locations[locIndex].x1, locations[locIndex].x2, thresholdDistance);
         console.log(isNearLocation,"isnearlocationnnnn")
